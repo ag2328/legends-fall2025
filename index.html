@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legends In-House Summer 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" type="module"></script>
+    <script src="team.js" type="module"></script>
+    <style>
+        /* Team name link styling */
+        .team-name a {
+            color: var(--text-primary);
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .team-name a:hover {
+            color: var(--accent);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 16px;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Hide the team page by default */
+        .team-page {
+            display: none;
+        }
+
+        /* Show the team page when it's active */
+        .team-page.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main standings page -->
+    <div id="standings-page">
+        <div class="app-header">
+            <div class="app-logo"></div>
+            <h1 class="app-title">Legends Hockey</h1>
+            <p class="app-subtitle">In-House Summer League 2025</p>
+            <p class="app-subtitle">14/16U</p>
+        </div>
+        
+        <div class="standings-grid" id="standings">
+            <div class="loading">Loading standings data...</div>
+        </div>
+        
+        <div id="last-updated">Last updated: Loading...</div>
+    </div>
+
+    <!-- Team schedule page -->
+    <div id="team-page" class="team-page">
+        <div class="app-header">
+            <div class="app-logo"></div>
+            <h1 class="app-title">Team Schedule</h1>
+            <a href="#" class="back-link">← Back to Standings</a>
+        </div>
+        
+        <div class="schedule-grid" id="schedule">
+            <div class="loading">Loading schedule data...</div>
+        </div>
+        
+        <div id="last-updated-team">Last updated: Loading...</div>
+    </div>
+</body>
+</html>

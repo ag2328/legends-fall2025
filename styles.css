@@ -1,0 +1,533 @@
+:root {
+  --background: #000000;
+  --surface-1: #1a1a1a;
+  --surface-2: #2a2a2a;
+  --accent: #ff2d55;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --border: rgba(255, 255, 255, 0.08);
+  --logo-blue: #7ec0ee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+  padding: 16px;
+  max-width: 100%;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.app-logo {
+  display: inline-block;
+  margin-bottom: 16px;
+  width: 54px;
+  height: 54px;
+  background-color: var(--logo-blue);
+  border-radius: 14px;
+  position: relative;
+  transform: rotate(45deg);
+}
+
+.app-logo::after {
+  display: none;
+}
+
+.app-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* Team page specific logo styles */
+.team-page .app-logo {
+  border-radius: 50%;
+  transform: none;
+}
+
+.team-page .app-logo img {
+  border-radius: 50%;
+}
+
+.app-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.app-subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+}
+
+.header-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.refresh-button {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+}
+
+.refresh-button:hover {
+    text-decoration: underline;
+}
+
+.standings-grid {
+  display: grid;
+  grid-template-rows: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: none;
+  margin-bottom: 32px;
+  min-width: 320px;
+}
+
+.standings-header, .standings-row {
+  display: grid;
+  grid-template-columns: 2.5em 12em 1fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 0.5em 1em;
+  background: none;
+  font-size: 1.25em;
+}
+
+.standings-header {
+  background: var(--surface-2);
+  font-weight: 700;
+  font-size: 1em;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  text-transform: uppercase;
+}
+
+.standings-header > div:not(:nth-child(2)),
+.standings-row > div:not(:nth-child(2)) {
+  text-align: center;
+}
+
+.standings-header > .header-team,
+.standings-row > .team-name {
+  text-align: left;
+}
+
+.standings-row {
+  border-bottom: 1px solid var(--border);
+  font-size: 1em;
+  background: none;
+}
+
+.standings-row:last-child {
+  border-bottom: none;
+}
+
+.team-logo {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--surface-2);
+  display: block;
+}
+
+.team-name {
+  font-weight: 600;
+  font-size: 1.25em;
+  color: var(--text-primary);
+  margin-left: 0.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.loading {
+  text-align: center;
+  padding: 32px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.error {
+  text-align: center;
+  padding: 32px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+#last-updated {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-top: 24px;
+}
+
+@media (max-width: 500px) {
+  .standings-header, .standings-row {
+    font-size: 1.1em;
+    padding: 0.3em 0.5em;
+    grid-template-columns: 1.2em 8em 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  .team-logo {
+    width: 1.2em;
+    height: 1.2em;
+  }
+  .team-name {
+    font-size: 1.2em;
+  }
+}
+
+/* Remove old card styles */
+.team-card, .team-logo-container, .points-container, .gp-container, .gf-container, .record {
+  all: unset;
+  display: revert;
+}
+
+.week-navigation {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.week-link {
+    padding: 8px 16px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.week-link:hover {
+    background: var(--surface-1);
+    color: var(--text-primary);
+}
+
+.week-link.active {
+    background: var(--accent);
+    color: var(--text-primary);
+    border-color: var(--accent);
+}
+
+/* Schedule grid: no background or border-radius */
+.schedule-grid {
+    display: grid;
+    grid-template-rows: auto;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: none;
+    margin-bottom: 32px;
+    min-width: 320px;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Schedule header: add background and border-radius for card look */
+.schedule-header {
+    display: grid;
+    grid-template-columns: 4em 8em 1fr 1fr 1fr;
+    align-items: center;
+    padding: 0.5em 1em;
+    background: var(--surface-2);
+    font-weight: 700;
+    font-size: 1em;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+    text-transform: uppercase;
+    border-radius: 12px 12px 0 0;
+}
+
+.schedule-header > div {
+    padding: 4px;
+}
+
+/* Left align Week, Date, and Vs. columns */
+.schedule-header > div:nth-child(1),
+.schedule-header > div:nth-child(2),
+.schedule-header > div:nth-child(3) {
+    text-align: left;
+}
+
+/* Center Score and W/L columns */
+.schedule-header > div:nth-child(4),
+.schedule-header > div:nth-child(5),
+.schedule-row > div:nth-child(4),
+.schedule-row > div:nth-child(5) {
+    text-align: center;
+}
+
+.schedule-row {
+    display: grid;
+    grid-template-columns: 4em 8em 1fr 1fr 1fr;
+    align-items: center;
+    padding: 0.5em 1em;
+    border-bottom: 1px solid var(--border);
+    font-size: 1em;
+}
+
+.schedule-row > div {
+    padding: 4px;
+}
+
+/* Left align Week, Date, and Vs. columns */
+.schedule-row > div:nth-child(1),
+.schedule-row > div:nth-child(2),
+.schedule-row > div:nth-child(3) {
+    text-align: left;
+}
+
+.schedule-week {
+    font-weight: 600;
+}
+
+.schedule-date {
+    color: var(--text-secondary);
+}
+
+.schedule-opponent {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    min-height: 24px;
+}
+
+.schedule-opponent .team-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+}
+
+.schedule-opponent span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 24px;
+}
+
+.schedule-score {
+    font-weight: 600;
+}
+
+.schedule-result {
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Removed color backgrounds for success, error, warning, and debug colors to keep only black background */
+/*
+.schedule-result.w {
+    background: var(--success);
+    color: white;
+}
+
+.schedule-result.l {
+    background: var(--error);
+    color: white;
+}
+
+.schedule-result.t {
+    background: var(--warning);
+    color: white;
+}
+*/
+
+.future-game {
+    color: var(--text-secondary);
+}
+
+.future-game .schedule-score {
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    .schedule-header, .schedule-row {
+        padding: 0.5em 0.75em;
+        font-size: 0.875em;
+        grid-template-columns: 0.5fr 0.8fr 1.2fr 0.8fr 0.5fr;
+    }
+
+    .schedule-opponent .team-logo {
+        width: 20px;
+        height: 20px;
+    }
+
+    .schedule-week {
+        font-size: 0.875em;
+    }
+
+    .schedule-result {
+        padding: 0.2em 0.4em;
+        min-width: 20px;
+    }
+}
+
+/* Player Stats Styles */
+.player-stats-container {
+    margin: 2rem 0;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
+}
+
+.player-stats-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.player-stats-section {
+    margin-bottom: 2rem;
+}
+
+.player-stats-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.player-stats-table {
+    width: 100%;
+    border-radius: 0;
+    border-collapse: collapse;
+    background: none;
+    color: #fff;
+    box-shadow: none;
+    overflow: visible;
+}
+
+.player-stats-table th,
+.player-stats-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    color: #fff;
+    background: none;
+}
+
+.player-stats-table th {
+    background: none;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.player-stats-table tr:last-child td {
+    border-bottom: none;
+}
+
+.player-stats-table td:first-child {
+    width: 60px;
+    text-align: center;
+}
+
+.player-stats-table td:last-child {
+    width: 80px;
+    text-align: center;
+}
+
+#player-stats-container {
+  margin-top: 32px;
+  background: none;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  min-height: 0;
+}
+
+#schedule {
+  background: none;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-height: 0;
+}
+
+/* Team page specific styles */
+.team-page {
+  display: none;
+  /* background-color: rgba(255, 255, 0, 0.1);  Debug color */
+}
+
+.team-page.active {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .player-stats-table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  .player-stats-table th,
+  .player-stats-table td {
+    padding: 0.5rem 0.15rem;
+    font-size: 1em;
+    text-align: center;
+  }
+  .player-stats-table th:nth-child(1),
+  .player-stats-table td:nth-child(1) {
+    width: 18%;
+  }
+  .player-stats-table th:nth-child(2),
+  .player-stats-table td:nth-child(2) {
+    width: 54%;
+    min-width: 5em;
+  }
+  .player-stats-table th:nth-child(3),
+  .player-stats-table td:nth-child(3) {
+    width: 28%;
+  }
+  .goalie-stats-table {
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 1.2em;
+  }
+  .goalie-stats-table th,
+  .goalie-stats-table td {
+    padding: 0.4rem 0.1rem;
+    font-size: 0.98em;
+    text-align: center;
+  }
+  .goalie-stats-table th,
+  .goalie-stats-table td {
+    width: 16.6%;
+  }
+}
+
+/* Goalie stats table styles */
+.goalie-stats-table {
+  width: 100%;
+  table-layout: fixed;
+  margin-top: 1.2em;
+}
+.goalie-stats-table th,
+.goalie-stats-table td {
+  text-align: center;
+  padding: 0.5rem 0.2rem;
+  font-size: 1em;
+}
