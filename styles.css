@@ -524,10 +524,32 @@ body {
       padding: 0.3rem 0.05rem;
       font-size: 0.8rem;
     }
-    /* Keep headers visible but smaller */
-    .player-stats-table th {
+    /* Use single letter headers for mobile */
+    .player-stats-table th:nth-child(3)::after {
+      content: "G";
+    }
+    .player-stats-table th:nth-child(3) {
+      font-size: 0;
+    }
+    .player-stats-table th:nth-child(4)::after {
+      content: "A";
+    }
+    .player-stats-table th:nth-child(4) {
+      font-size: 0;
+    }
+    .player-stats-table th:nth-child(5)::after {
+      content: "P";
+    }
+    .player-stats-table th:nth-child(5) {
+      font-size: 0;
+    }
+    .player-stats-table th:nth-child(3)::after,
+    .player-stats-table th:nth-child(4)::after,
+    .player-stats-table th:nth-child(5)::after {
       font-size: 0.75rem;
       font-weight: 600;
+      display: block;
+      text-align: center;
     }
     .player-stats-table th:nth-child(1),
     .player-stats-table td:nth-child(1) {
