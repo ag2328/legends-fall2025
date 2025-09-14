@@ -61,13 +61,15 @@ function renderPlayerStats(teamName, playerData) {
     const sortedSkaters = [...skaters].sort((a, b) => parseInt(a.number) - parseInt(b.number));
     const skaterRows = sortedSkaters.map(player => {
         const goals = player.goals || 0;
+        const assists = player.assists || 0;
+        const penalties = player.penalties || 0;
         return `
             <tr>
                 <td>${player.number}</td>
                 <td>${player.name}</td>
                 <td>${goals}</td>
-                <td>-</td>
-                <td>-</td>
+                <td>${assists}</td>
+                <td>${penalties}</td>
                 <td>-</td>
                 <td>-</td>
             </tr>
@@ -102,7 +104,9 @@ function renderPlayerStats(teamName, playerData) {
                     <th>#</th>
                     <th>Player</th>
                     <th>Goals</th>
-                    <th colspan="4"></th>
+                    <th>Assists</th>
+                    <th>Penalties</th>
+                    <th colspan="2"></th>
                 </tr>
             </thead>
             <tbody>
@@ -149,7 +153,7 @@ function parsePlayerStats(csvData) {
         if (!line) continue;
         
         // Look for the start of player stats section
-        if (line.includes('Player #,Player Name,Goals')) {
+        if (line.includes('Player #,Player Name,Goals,Assists,Penalties') || line.includes('Player #,Player Name,Goals')) {
             console.log('Found player stats section at line:', i);
             inPlayerStatsSection = true;
             inGoalieStatsSection = false;
@@ -165,11 +169,15 @@ function parsePlayerStats(csvData) {
         
         // Parse player stats
         if (inPlayerStatsSection) {
-            const [number, name, goals] = line.split(',').map(item => item.trim());
-            console.log('Parsing player line:', { number, name, goals });
+            const [number, name, goals, assists, penalties] = line.split(',').map(item => item.trim());
+            console.log('Parsing player line:', { number, name, goals, assists, penalties });
             if (name && !isNaN(parseInt(number))) {
-                stats.players[name] = parseInt(goals) || 0;
-                console.log('Added player stats:', { name, goals: stats.players[name] });
+                stats.players[name] = {
+                    goals: parseInt(goals) || 0,
+                    assists: parseInt(assists) || 0,
+                    penalties: parseInt(penalties) || 0
+                };
+                console.log('Added player stats:', { name, stats: stats.players[name] });
             }
         }
         
@@ -206,6 +214,8 @@ function createPlayerStatsGrid(teamName, playerData, stats) {
                 <th style="text-align:center;">#</th>
                 <th style="text-align:center;">Name</th>
                 <th style="text-align:center;">Goals</th>
+                <th style="text-align:center;">Assists</th>
+                <th style="text-align:center;">Penalties</th>
             </tr>
         </thead>
     `;
@@ -223,10 +233,13 @@ function createPlayerStatsGrid(teamName, playerData, stats) {
             console.log('Matching player:', { playerName, statsName, goals: stats.players[statsName] });
             
             const row = document.createElement('tr');
+            const playerStats = statsName ? stats.players[statsName] : { goals: 0, assists: 0, penalties: 0 };
             row.innerHTML = `
                 <td style="text-align:center;">${player.number}</td>
                 <td style="text-align:center;">${player.name}</td>
-                <td style="text-align:center;">${statsName ? stats.players[statsName] || 0 : 0}</td>
+                <td style="text-align:center;">${playerStats.goals || 0}</td>
+                <td style="text-align:center;">${playerStats.assists || 0}</td>
+                <td style="text-align:center;">${playerStats.penalties || 0}</td>
             `;
             tbody.appendChild(row);
         });
