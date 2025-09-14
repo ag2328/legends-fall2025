@@ -3,7 +3,7 @@ const BASE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQCVr58u
 
 // Sheet GID mappings - will be populated dynamically
 let SHEET_MAPPINGS = {
-    'overall': '0'  // Additional mapping for overall standings
+    'overall': '983198576'  // Overall standings sheet GID
 };
 
 // Track initialization state
@@ -39,6 +39,7 @@ async function fetchSheetMappings() {
 
     try {
         // Use the correct URL format for the GID Mapping sheet
+        // Note: This GID might not exist in the new workbook, so we'll use a fallback
         const mappingUrl = `${BASE_SHEET_URL}?gid=26105431&single=true&output=csv`;
         console.log('Fetching sheet mappings from:', mappingUrl);
         
@@ -47,7 +48,32 @@ async function fetchSheetMappings() {
         console.log('Mapping response status:', response.status);
         
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}, statusText: ${response.statusText}`);
+            console.log('GID mapping sheet not found, using fallback mappings...');
+            // Use correct GID mappings from your Google Sheets workbook
+            SHEET_MAPPINGS = {
+                'overall': '983198576',  // Overall standings sheet
+                'Maple Leafs': '826678550',
+                'Canadiens': '544275637', 
+                'Bruins': '113883190',
+                'Red Wings': '2058186730',
+                'Week 1': '593743521',
+                'Week 2': '1121402062',
+                'Week 3': '1071304946',
+                'Week 4': '1719310027',
+                'Week 5': '1230431394',
+                'Week 6': '2020067957',
+                'Week 7': '1013285102',
+                'Week 8': '1463206337',
+                'Week 9': '1023309672',
+                'Week 10': '692231056',
+                'Week 11': '1541753318',
+                'Week 12': '98340773',
+                'Week 13': '68729982',
+                'Week 14': '860267584'
+            };
+            console.log('Using fallback mappings:', SHEET_MAPPINGS);
+            isInitialized = true;
+            return SHEET_MAPPINGS;
         }
         
         const data = await response.text();
