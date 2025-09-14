@@ -204,6 +204,12 @@ function createPlayerStatsGrid(teamName, playerData, stats) {
     console.log('Creating stats grid with data:', { teamName, playerData, stats });
     const container = document.createElement('div');
     container.className = 'player-stats-container';
+    
+    // Add Player Stats title
+    const title = document.createElement('h3');
+    title.className = 'player-stats-title';
+    title.textContent = 'Player Stats';
+    container.appendChild(title);
 
     // --- Player Table ---
     const playersTable = document.createElement('table');

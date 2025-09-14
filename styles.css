@@ -468,6 +468,14 @@ body {
   min-height: 0;
 }
 
+.player-stats-title {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
 #schedule {
   background: none;
   padding: 16px;
