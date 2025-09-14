@@ -296,48 +296,37 @@ function createPlayerStatsGrid(teamName, playerData, stats) {
     `;
     
     legendContainer.innerHTML = `
-        <h2 style="color: var(--text-primary); font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; text-align: center;">
-            Player Stats Legend
+        <h2 style="color: var(--text-primary); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; text-align: center;">
+            Legend
         </h2>
         
-        <div style="margin-bottom: 1.5rem;">
-            <h3 style="color: var(--text-primary); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem; text-align: left;">
-                Player Statistics
-            </h3>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">G</span>
-                <span style="color: var(--text-primary); font-size: 1rem;">Goals</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">A</span>
-                <span style="color: var(--text-primary); font-size: 1rem;">Assists</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: none;">
-                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">P</span>
-                <span style="color: var(--text-primary); font-size: 1rem;">Penalties</span>
-            </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid var(--border);">
+            <span style="color: var(--text-primary); font-weight: 600; font-size: 1rem; min-width: 40px;">G</span>
+            <span style="color: var(--text-primary); font-size: 1rem;">Goals</span>
         </div>
-        
-        <div style="margin-bottom: 1.5rem;">
-            <h3 style="color: var(--text-primary); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem; text-align: left;">
-                Goalie Statistics
-            </h3>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">SA</span>
-                <span style="color: var(--text-primary); font-size: 1rem;">Shots Against</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">GA</span>
-                <span style="color: var(--text-primary); font-size: 1rem;">Goals Against</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
-                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">SV</span>
-                <span style="color: var(--text-primary); font-size: 1rem;">Saves</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: none;">
-                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">SV%</span>
-                <span style="color: var(--text-primary); font-size: 1rem;">Save Percentage</span>
-            </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid var(--border);">
+            <span style="color: var(--text-primary); font-weight: 600; font-size: 1rem; min-width: 40px;">A</span>
+            <span style="color: var(--text-primary); font-size: 1rem;">Assists</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid var(--border);">
+            <span style="color: var(--text-primary); font-weight: 600; font-size: 1rem; min-width: 40px;">P</span>
+            <span style="color: var(--text-primary); font-size: 1rem;">Penalties</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid var(--border);">
+            <span style="color: var(--text-primary); font-weight: 600; font-size: 1rem; min-width: 40px;">SA</span>
+            <span style="color: var(--text-primary); font-size: 1rem;">Shots Against</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid var(--border);">
+            <span style="color: var(--text-primary); font-weight: 600; font-size: 1rem; min-width: 40px;">GA</span>
+            <span style="color: var(--text-primary); font-size: 1rem;">Goals Against</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid var(--border);">
+            <span style="color: var(--text-primary); font-weight: 600; font-size: 1rem; min-width: 40px;">SV</span>
+            <span style="color: var(--text-primary); font-size: 1rem;">Saves</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.3rem 0; border-bottom: none;">
+            <span style="color: var(--text-primary); font-weight: 600; font-size: 1rem; min-width: 40px;">SV%</span>
+            <span style="color: var(--text-primary); font-size: 1rem;">Save Percentage</span>
         </div>
     `;
     
