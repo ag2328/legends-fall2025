@@ -429,6 +429,14 @@ body {
     background: none;
 }
 
+/* Make stats numbers (G, A, P) more prominent on desktop */
+.player-stats-table td:nth-child(3),
+.player-stats-table td:nth-child(4),
+.player-stats-table td:nth-child(5) {
+    font-weight: 600;
+    text-align: center;
+}
+
 .player-stats-table th {
     background: none;
     font-weight: 700;
@@ -482,13 +490,20 @@ body {
   .player-stats-table {
     width: 100%;
     table-layout: fixed;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
   .player-stats-table th,
   .player-stats-table td {
     padding: 0.4rem 0.1rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     text-align: center;
+  }
+  /* Make stats numbers (G, A, P) more prominent */
+  .player-stats-table td:nth-child(3),
+  .player-stats-table td:nth-child(4),
+  .player-stats-table td:nth-child(5) {
+    font-size: 1.05rem;
+    font-weight: 600;
   }
   .player-stats-table th:nth-child(1),
   .player-stats-table td:nth-child(1) {
@@ -517,12 +532,19 @@ body {
   /* Additional mobile optimizations for very small screens */
   @media (max-width: 480px) {
     .player-stats-table {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
     }
     .player-stats-table th,
     .player-stats-table td {
       padding: 0.3rem 0.05rem;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
+    }
+    /* Make stats numbers even more prominent on very small screens */
+    .player-stats-table td:nth-child(3),
+    .player-stats-table td:nth-child(4),
+    .player-stats-table td:nth-child(5) {
+      font-size: 1.0rem;
+      font-weight: 600;
     }
     /* Use single letter headers for mobile */
     .player-stats-table th:nth-child(3)::after {
