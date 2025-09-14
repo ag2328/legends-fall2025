@@ -1,6 +1,6 @@
 // Import configuration
 import { getSheetUrl, fetchSheetMappings, getAvailableSheets } from './config.js';
-import { standingsPage, teamPage, scheduleContainer, lastUpdatedTeam, pageTitle } from './dom.js';
+import { standingsPage, teamPage, scheduleContainer, pageTitle } from './dom.js';
 import { initializePlayerStats } from './player-stats.js';
 
 // Initialize sheet mappings
@@ -87,10 +87,7 @@ async function handleHashChange() {
             
             // Position the container
             const scheduleGrid = document.getElementById('schedule');
-            const lastUpdated = document.getElementById('last-updated-team');
-            if (scheduleGrid && lastUpdated && lastUpdated.parentNode) {
-                lastUpdated.parentNode.insertBefore(statsContainer, lastUpdated);
-            } else if (scheduleGrid && scheduleGrid.parentNode) {
+            if (scheduleGrid && scheduleGrid.parentNode) {
                 scheduleGrid.parentNode.appendChild(statsContainer);
             } else {
                 teamPage.appendChild(statsContainer);
@@ -405,10 +402,6 @@ function renderTeamSchedule(teamName, games) {
     scheduleContainer.innerHTML = html;
 }
 
-// Function to update last updated message
-function updateLastUpdated() {
-    lastUpdatedTeam.textContent = 'Standings updated by 8pm on Mondays';
-}
 
 async function fetchAndDisplayAllGames(teamName) {
     try {
@@ -456,9 +449,6 @@ async function fetchAndDisplayAllGames(teamName) {
         console.log('Combined games:', combinedGames);
         
         renderTeamSchedule(teamName, combinedGames);
-        
-        // Update last updated message
-        updateLastUpdated();
     } catch (error) {
         console.error('Error in fetchAndDisplayAllGames:', error);
         scheduleContainer.innerHTML = `

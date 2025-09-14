@@ -1,6 +1,6 @@
 // Import configuration
 import { getSheetUrl, fetchSheetMappings } from './config.js';
-import { standingsPage, teamPage, standingsContainer, lastUpdated } from './dom.js';
+import { standingsPage, teamPage, standingsContainer } from './dom.js';
 
 // Configuration
 let SHEET_URL = null;
@@ -266,18 +266,11 @@ function renderLeaderboard(leaderboardData) {
     standingsContainer.innerHTML = html;
 }
 
-// Update last updated message
-function updateLastUpdated() {
-    lastUpdated.textContent = 'Standings updated by 8pm on Mondays';
-}
 
 // Display error message
 function displayError(message) {
     if (standingsContainer) {
         standingsContainer.innerHTML = `<div class="error">Error: ${message}</div>`;
-    }
-    if (lastUpdated) {
-        lastUpdated.textContent = 'Last updated: Error loading data';
     }
 }
 
@@ -293,7 +286,6 @@ async function fetchAndDisplayData() {
         const standingsData = await fetchLeaderboardData();
         if (standingsData) {
             renderLeaderboard(standingsData);
-            updateLastUpdated();
         } else {
             displayError('Failed to load standings data');
         }
