@@ -281,8 +281,14 @@ function combineScheduleAndScores(teamName, scores) {
     const teamSchedule = scheduleData.teams[teamName]?.schedule || [];
     console.log('Team schedule from JSON:', teamSchedule);
     
+    // Remove duplicates from the schedule (in case they exist in the data)
+    const uniqueSchedule = teamSchedule.filter((game, index, self) => 
+        index === self.findIndex(g => g.week === game.week && g.opponent === game.opponent)
+    );
+    console.log('Unique schedule after deduplication:', uniqueSchedule);
+    
     // Map the schedule to the expected format
-    const teamGames = teamSchedule.map(game => ({
+    const teamGames = uniqueSchedule.map(game => ({
         weekNumber: game.week.toString(),
         date: game.date,
         team1: {

@@ -9,11 +9,6 @@
                     "opponent": "Red Wings"
                 },
                 {
-                    "week": 1,
-                    "date": "2025-09-07",
-                    "opponent": "Red Wings"
-                },
-                {
                     "week": 2,
                     "date": "2025-09-14",
                     "opponent": "Bruins"
@@ -82,11 +77,6 @@
         },
         "Canadiens": {
             "schedule": [
-                {
-                    "week": 1,
-                    "date": "2025-09-07",
-                    "opponent": "Bruins"
-                },
                 {
                     "week": 1,
                     "date": "2025-09-07",
@@ -167,11 +157,6 @@
                     "opponent": "Canadiens"
                 },
                 {
-                    "week": 1,
-                    "date": "2025-09-07",
-                    "opponent": "Canadiens"
-                },
-                {
                     "week": 2,
                     "date": "2025-09-14",
                     "opponent": "Maple Leafs"
@@ -240,11 +225,6 @@
         },
         "Red Wings": {
             "schedule": [
-                {
-                    "week": 1,
-                    "date": "2025-09-07",
-                    "opponent": "Maple Leafs"
-                },
                 {
                     "week": 1,
                     "date": "2025-09-07",

@@ -267,24 +267,38 @@ async function updateSchedule() {
                 
                 // For each team in the game, add it to their schedule
                 if (game.team1 && game.team2) {
-                    // Add game to team1's schedule
+                    // Add game to team1's schedule (check for duplicates)
                     if (scheduleData.teams[game.team1]) {
-                        scheduleData.teams[game.team1].schedule.push({
-                            week: game.week,
-                            date: game.date,
-                            opponent: game.team2
-                        });
-                        console.log(`Added to ${game.team1} schedule: vs ${game.team2}`);
+                        const existingGame = scheduleData.teams[game.team1].schedule.find(
+                            existing => existing.week === game.week && existing.opponent === game.team2
+                        );
+                        if (!existingGame) {
+                            scheduleData.teams[game.team1].schedule.push({
+                                week: game.week,
+                                date: game.date,
+                                opponent: game.team2
+                            });
+                            console.log(`Added to ${game.team1} schedule: vs ${game.team2}`);
+                        } else {
+                            console.log(`Skipping duplicate game for ${game.team1} vs ${game.team2} in week ${game.week}`);
+                        }
                     }
                     
-                    // Add game to team2's schedule
+                    // Add game to team2's schedule (check for duplicates)
                     if (scheduleData.teams[game.team2]) {
-                        scheduleData.teams[game.team2].schedule.push({
-                            week: game.week,
-                            date: game.date,
-                            opponent: game.team1
-                        });
-                        console.log(`Added to ${game.team2} schedule: vs ${game.team1}`);
+                        const existingGame = scheduleData.teams[game.team2].schedule.find(
+                            existing => existing.week === game.week && existing.opponent === game.team1
+                        );
+                        if (!existingGame) {
+                            scheduleData.teams[game.team2].schedule.push({
+                                week: game.week,
+                                date: game.date,
+                                opponent: game.team1
+                            });
+                            console.log(`Added to ${game.team2} schedule: vs ${game.team1}`);
+                        } else {
+                            console.log(`Skipping duplicate game for ${game.team2} vs ${game.team1} in week ${game.week}`);
+                        }
                     }
                 }
             });
@@ -315,24 +329,38 @@ async function updateSchedule() {
                 
                 // For each team in the game, add it to their schedule
                 if (game.team1 && game.team2) {
-                    // Add game to team1's schedule
+                    // Add game to team1's schedule (check for duplicates)
                     if (scheduleData.teams[game.team1]) {
-                        scheduleData.teams[game.team1].schedule.push({
-                            week: game.week,
-                            date: game.date,
-                            opponent: game.team2
-                        });
-                        console.log(`Added to ${game.team1} schedule: vs ${game.team2}`);
+                        const existingGame = scheduleData.teams[game.team1].schedule.find(
+                            existing => existing.week === game.week && existing.opponent === game.team2
+                        );
+                        if (!existingGame) {
+                            scheduleData.teams[game.team1].schedule.push({
+                                week: game.week,
+                                date: game.date,
+                                opponent: game.team2
+                            });
+                            console.log(`Added to ${game.team1} schedule: vs ${game.team2}`);
+                        } else {
+                            console.log(`Skipping duplicate game for ${game.team1} vs ${game.team2} in week ${game.week}`);
+                        }
                     }
                     
-                    // Add game to team2's schedule
+                    // Add game to team2's schedule (check for duplicates)
                     if (scheduleData.teams[game.team2]) {
-                        scheduleData.teams[game.team2].schedule.push({
-                            week: game.week,
-                            date: game.date,
-                            opponent: game.team1
-                        });
-                        console.log(`Added to ${game.team2} schedule: vs ${game.team1}`);
+                        const existingGame = scheduleData.teams[game.team2].schedule.find(
+                            existing => existing.week === game.week && existing.opponent === game.team1
+                        );
+                        if (!existingGame) {
+                            scheduleData.teams[game.team2].schedule.push({
+                                week: game.week,
+                                date: game.date,
+                                opponent: game.team1
+                            });
+                            console.log(`Added to ${game.team2} schedule: vs ${game.team1}`);
+                        } else {
+                            console.log(`Skipping duplicate game for ${game.team2} vs ${game.team1} in week ${game.week}`);
+                        }
                     }
                 }
             });
@@ -356,12 +384,7 @@ async function updateSchedule() {
                 fs.mkdirSync(dataDir, { recursive: true });
             }
             
-            // Save to static/data/schedule_new.json for testing
-            const outputPath = path.join(dataDir, 'schedule_new.json');
-            fs.writeFileSync(outputPath, JSON.stringify(expectedSchedule, null, 4));
-            console.log('\nSuccessfully created static/data/schedule_new.json with expected schedule');
-            
-            // Also save to the main schedule.json file
+            // Save to the main schedule.json file
             const mainOutputPath = path.join(dataDir, 'schedule.json');
             fs.writeFileSync(mainOutputPath, JSON.stringify(expectedSchedule, null, 4));
             console.log('Successfully updated static/data/schedule.json');
@@ -375,12 +398,7 @@ async function updateSchedule() {
             fs.mkdirSync(dataDir, { recursive: true });
         }
         
-        // Save to static/data/schedule_new.json for testing
-        const outputPath = path.join(dataDir, 'schedule_new.json');
-        fs.writeFileSync(outputPath, JSON.stringify(scheduleData, null, 4));
-        console.log('\nSuccessfully created static/data/schedule_new.json with CSV data');
-        
-        // Also save to the main schedule.json file
+        // Save to the main schedule.json file
         const mainOutputPath = path.join(dataDir, 'schedule.json');
         fs.writeFileSync(mainOutputPath, JSON.stringify(scheduleData, null, 4));
         console.log('Successfully updated static/data/schedule.json');
