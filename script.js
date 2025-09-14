@@ -5,7 +5,7 @@ import { standingsPage, teamPage, standingsContainer, lastUpdated } from './dom.
 // Configuration
 let SHEET_URL = null;
 let STATIC_DATA = null;
-const BASE_URL = 'https://ag2328.github.io/legends2025';
+const BASE_URL = 'https://ag2328.github.io/legends-fall2025';
 let LAST_SHEET_UPDATE = null;
 
 // Load static data
@@ -67,7 +67,7 @@ async function initialize() {
         console.log('Fetching sheet mappings...');
         await fetchSheetMappings();
         console.log('Getting sheet URL...');
-        SHEET_URL = await getSheetUrl('standings');
+        SHEET_URL = await getSheetUrl('overall');
         console.log('Sheet URL:', SHEET_URL);
         console.log('Handling hash change...');
         await handleHashChange();
@@ -98,7 +98,7 @@ async function fetchLeaderboardData() {
     try {
         if (!SHEET_URL) {
             console.log('SHEET_URL not set, fetching from getSheetUrl...');
-            SHEET_URL = await getSheetUrl('standings');
+            SHEET_URL = await getSheetUrl('overall');
             console.log('SHEET_URL set to:', SHEET_URL);
         }
         

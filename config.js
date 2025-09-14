@@ -3,7 +3,7 @@ const BASE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQCVr58u
 
 // Sheet GID mappings - will be populated dynamically
 let SHEET_MAPPINGS = {
-    'standings': '0'  // Additional mapping for standings
+    'overall': '0'  // Additional mapping for overall standings
 };
 
 // Track initialization state
