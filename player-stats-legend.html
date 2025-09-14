@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Stats Legend - Legends Hockey</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .legend-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            padding: 2rem;
+        }
+        .legend-title {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .legend-section {
+            margin-bottom: 1.5rem;
+        }
+        .legend-section-title {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            text-align: left;
+        }
+        .legend-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .legend-item:last-child {
+            border-bottom: none;
+        }
+        .legend-abbreviation {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.1rem;
+            min-width: 60px;
+        }
+        .legend-description {
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="legend-container">
+        <h2 class="legend-title">Player Stats Legend</h2>
+        
+        <div class="legend-section">
+            <h3 class="legend-section-title">Player Statistics</h3>
+            <div class="legend-item">
+                <span class="legend-abbreviation">G</span>
+                <span class="legend-description">Goals</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-abbreviation">A</span>
+                <span class="legend-description">Assists</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-abbreviation">P</span>
+                <span class="legend-description">Penalties</span>
+            </div>
+        </div>
+        
+        <div class="legend-section">
+            <h3 class="legend-section-title">Goalie Statistics</h3>
+            <div class="legend-item">
+                <span class="legend-abbreviation">SA</span>
+                <span class="legend-description">Shots Against</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-abbreviation">GA</span>
+                <span class="legend-description">Goals Against</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-abbreviation">SV</span>
+                <span class="legend-description">Saves</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-abbreviation">SV%</span>
+                <span class="legend-description">Save Percentage</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
