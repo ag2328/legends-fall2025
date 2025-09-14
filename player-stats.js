@@ -282,6 +282,91 @@ function createPlayerStatsGrid(teamName, playerData, stats) {
         `;
         container.appendChild(goalieTable);
     }
+    
+    // Add Player Stats Legend
+    const legendContainer = document.createElement('div');
+    legendContainer.className = 'legend-container';
+    legendContainer.style.cssText = `
+        max-width: 800px;
+        margin: 2rem auto;
+        background: var(--card-bg);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        padding: 2rem;
+        border: 3px solid #ff0000;
+        background-color: #333333;
+        position: relative;
+        z-index: 9999;
+    `;
+    
+    legendContainer.innerHTML = `
+        <h2 style="color: var(--text-primary); font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; text-align: center;">
+            🔴 PLAYER STATS LEGEND - DEBUG MODE 🔴
+        </h2>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <h3 style="color: var(--text-primary); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem; text-align: left;">
+                Player Statistics
+            </h3>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">G</span>
+                <span style="color: var(--text-primary); font-size: 1rem;">Goals</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">A</span>
+                <span style="color: var(--text-primary); font-size: 1rem;">Assists</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: none;">
+                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">P</span>
+                <span style="color: var(--text-primary); font-size: 1rem;">Penalties</span>
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <h3 style="color: var(--text-primary); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem; text-align: left;">
+                Goalie Statistics
+            </h3>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">SA</span>
+                <span style="color: var(--text-primary); font-size: 1rem;">Shots Against</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">GA</span>
+                <span style="color: var(--text-primary); font-size: 1rem;">Goals Against</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border);">
+                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">SV</span>
+                <span style="color: var(--text-primary); font-size: 1rem;">Saves</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: none;">
+                <span style="color: var(--accent); font-weight: 600; font-size: 1.1rem; min-width: 60px;">SV%</span>
+                <span style="color: var(--text-primary); font-size: 1rem;">Save Percentage</span>
+            </div>
+        </div>
+    `;
+    
+    // Add standings message
+    const standingsMessage = document.createElement('div');
+    standingsMessage.className = 'standings-update-message';
+    standingsMessage.style.cssText = `
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 400;
+        border: 2px solid #0000ff;
+        background-color: #444444;
+        padding: 10px;
+        position: relative;
+        z-index: 9998;
+    `;
+    standingsMessage.textContent = '🔵 PLAYER STATS STANDINGS MESSAGE - DEBUG 🔵';
+    
+    // Append legend and standings message to the main container
+    container.appendChild(legendContainer);
+    container.appendChild(standingsMessage);
+    
     return container;
 }
 
