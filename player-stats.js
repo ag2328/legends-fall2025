@@ -293,15 +293,11 @@ function createPlayerStatsGrid(teamName, playerData, stats) {
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.08);
         padding: 2rem;
-        border: 3px solid #ff0000;
-        background-color: #333333;
-        position: relative;
-        z-index: 9999;
     `;
     
     legendContainer.innerHTML = `
         <h2 style="color: var(--text-primary); font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; text-align: center;">
-            🔴 PLAYER STATS LEGEND - DEBUG MODE 🔴
+            Player Stats Legend
         </h2>
         
         <div style="margin-bottom: 1.5rem;">
@@ -355,13 +351,8 @@ function createPlayerStatsGrid(teamName, playerData, stats) {
         margin-top: 2rem;
         margin-bottom: 1rem;
         font-weight: 400;
-        border: 2px solid #0000ff;
-        background-color: #444444;
-        padding: 10px;
-        position: relative;
-        z-index: 9998;
     `;
-    standingsMessage.textContent = '🔵 PLAYER STATS STANDINGS MESSAGE - DEBUG 🔵';
+    standingsMessage.textContent = 'Standings updated by 8pm on Mondays';
     
     // Append legend and standings message to the main container
     container.appendChild(legendContainer);
