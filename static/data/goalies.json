@@ -1,21 +1,21 @@
 {
-    "lastUpdated": "2025-05-08T12:06:28.692945",
+    "lastUpdated": "2025-09-14T00:33:03.109Z",
     "teams": {
         "Maple Leafs": {
-            "number": 12,
-            "name": "Ryan D."
+            "number": 32,
+            "name": "Olivia B."
         },
         "Canadiens": {
-            "number": 56,
-            "name": "Bodhi F."
-        },
-        "Bruins": {
             "number": 8,
             "name": "London C."
         },
+        "Bruins": {
+            "number": 57,
+            "name": "Briar P."
+        },
         "Red Wings": {
-            "number": 0,
-            "name": "William Y."
+            "number": 12,
+            "name": "Ryan D."
         }
     }
 } 
