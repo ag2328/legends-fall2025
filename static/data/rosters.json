@@ -1,17 +1,271 @@
 {
-    "lastUpdated": "2025-09-13T23:22:13.168Z",
+    "lastUpdated": "2025-09-14T17:59:50.582Z",
     "teams": {
         "Maple Leafs": {
-            "players": []
+            "players": [
+                {
+                    "number": 6,
+                    "name": "Ryan C.",
+                    "goals": 0
+                },
+                {
+                    "number": 34,
+                    "name": "Preston C.",
+                    "goals": 0
+                },
+                {
+                    "number": 72,
+                    "name": "Julian D.",
+                    "goals": 0
+                },
+                {
+                    "number": 27,
+                    "name": "Elijah F.",
+                    "goals": 0
+                },
+                {
+                    "number": 28,
+                    "name": "Noah G.",
+                    "goals": 0
+                },
+                {
+                    "number": 13,
+                    "name": "Jason G.",
+                    "goals": 0
+                },
+                {
+                    "number": 15,
+                    "name": "Nathan L.",
+                    "goals": 0
+                },
+                {
+                    "number": 12,
+                    "name": "Terry M.",
+                    "goals": 0
+                },
+                {
+                    "number": 29,
+                    "name": "Jack P.",
+                    "goals": 0
+                },
+                {
+                    "number": 10,
+                    "name": "Austin P.",
+                    "goals": 0
+                },
+                {
+                    "number": 24,
+                    "name": "Julian R.",
+                    "goals": 0
+                },
+                {
+                    "number": 19,
+                    "name": "Sebastian R.",
+                    "goals": 0
+                },
+                {
+                    "number": 88,
+                    "name": "Lexi W.",
+                    "goals": 0
+                }
+            ]
         },
         "Canadiens": {
-            "players": []
+            "players": [
+                {
+                    "number": 22,
+                    "name": "Jake F.",
+                    "goals": 0
+                },
+                {
+                    "number": 23,
+                    "name": "Luca H.",
+                    "goals": 0
+                },
+                {
+                    "number": 21,
+                    "name": "Owen H.",
+                    "goals": 0
+                },
+                {
+                    "number": 2,
+                    "name": "Cristian K.",
+                    "goals": 0
+                },
+                {
+                    "number": 18,
+                    "name": "Brady M.",
+                    "goals": 0
+                },
+                {
+                    "number": 15,
+                    "name": "Marley M.",
+                    "goals": 0
+                },
+                {
+                    "number": 17,
+                    "name": "Nathan M.",
+                    "goals": 0
+                },
+                {
+                    "number": 29,
+                    "name": "Cory M.",
+                    "goals": 0
+                },
+                {
+                    "number": 97,
+                    "name": "Tommy M.",
+                    "goals": 0
+                },
+                {
+                    "number": 4,
+                    "name": "Eithan M.",
+                    "goals": 0
+                },
+                {
+                    "number": 7,
+                    "name": "William N.",
+                    "goals": 0
+                },
+                {
+                    "number": 89,
+                    "name": "Raffay S.",
+                    "goals": 0
+                },
+                {
+                    "number": 37,
+                    "name": "Jack W.",
+                    "goals": 0
+                }
+            ]
         },
         "Bruins": {
-            "players": []
+            "players": [
+                {
+                    "number": 83,
+                    "name": "Gustavo C.",
+                    "goals": 0
+                },
+                {
+                    "number": 21,
+                    "name": "Harry C.",
+                    "goals": 0
+                },
+                {
+                    "number": 7,
+                    "name": "Jacoby F.",
+                    "goals": 0
+                },
+                {
+                    "number": 96,
+                    "name": "Dominic F.",
+                    "goals": 0
+                },
+                {
+                    "number": 8,
+                    "name": "Jadiel L.",
+                    "goals": 0
+                },
+                {
+                    "number": 42,
+                    "name": "Nate M.",
+                    "goals": 0
+                },
+                {
+                    "number": 18,
+                    "name": "MJ M.",
+                    "goals": 0
+                },
+                {
+                    "number": 25,
+                    "name": "Dominic M.",
+                    "goals": 0
+                },
+                {
+                    "number": 73,
+                    "name": "Javier R.",
+                    "goals": 0
+                },
+                {
+                    "number": 61,
+                    "name": "Kaiden S.",
+                    "goals": 0
+                },
+                {
+                    "number": 18,
+                    "name": "Phineas T.",
+                    "goals": 0
+                },
+                {
+                    "number": 17,
+                    "name": "Michael N.",
+                    "goals": 0
+                }
+            ]
         },
         "Red Wings": {
-            "players": []
+            "players": [
+                {
+                    "number": 14,
+                    "name": "Jayce A.",
+                    "goals": 0
+                },
+                {
+                    "number": 7,
+                    "name": "Lucas B.",
+                    "goals": 0
+                },
+                {
+                    "number": 29,
+                    "name": "Beau B.",
+                    "goals": 0
+                },
+                {
+                    "number": 67,
+                    "name": "Ramsay C.",
+                    "goals": 0
+                },
+                {
+                    "number": 25,
+                    "name": "Jax L.",
+                    "goals": 0
+                },
+                {
+                    "number": 8,
+                    "name": "Daelyn L.",
+                    "goals": 0
+                },
+                {
+                    "number": 0,
+                    "name": "Kitana N.",
+                    "goals": 0
+                },
+                {
+                    "number": 13,
+                    "name": "Austin O.",
+                    "goals": 0
+                },
+                {
+                    "number": 19,
+                    "name": "Josiah R.",
+                    "goals": 0
+                },
+                {
+                    "number": 31,
+                    "name": "Addison S.",
+                    "goals": 0
+                },
+                {
+                    "number": 0,
+                    "name": "Matthew S.",
+                    "goals": 0
+                },
+                {
+                    "number": 77,
+                    "name": "Alex W.",
+                    "goals": 0
+                }
+            ]
         }
     }
 }

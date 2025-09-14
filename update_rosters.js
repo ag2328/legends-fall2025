@@ -2,12 +2,12 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 const path = require('path');
 
-const BASE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS2z2qeTV7pdgq6l1_B8AHdr6ysBIoTy0v2zE20o54IqoRKX2J8hZw34s0rv2akIKZqMTQHv3BtOdv4/pub';
+const BASE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQCVr58uMl14fyEjGGDIwv2syaW3k-UtAMvlrDtqTvdSP4BkXEHAYrhUzuGNV_FVavzTD9I9kW--y4C/pub';
 const SHEET_MAPPINGS = {
-    'Maple Leafs': '1499474245',
-    'Canadiens': '1883457933',
-    'Bruins': '854028421',
-    'Red Wings': '335533588'
+    'Maple Leafs': '826678550',
+    'Canadiens': '544275637',
+    'Bruins': '113883190',
+    'Red Wings': '2058186730'
 };
 
 async function fetchTeamRoster(team) {
@@ -27,35 +27,53 @@ async function fetchTeamRoster(team) {
         const lines = data.split(/\r?\n/);
         const players = [];
         
-        // Skip header row and process each line
-        for (let i = 1; i < lines.length; i++) {
+        // Simple approach: look for lines that have a number and a name (regular players)
+        for (let i = 0; i < lines.length; i++) {
             const line = lines[i].trim();
             if (!line) continue;
             
-            // Skip rows that start with "Coach"
-            if (line.toLowerCase().startsWith('coach')) {
-                console.log(`Skipping coach row:`, line);
+            // Skip obvious non-player lines
+            if (line.toLowerCase().startsWith('team name') ||
+                line.toLowerCase().startsWith('coach') ||
+                line.toLowerCase().includes('goalie stats') ||
+                line.includes('Player #') ||
+                line === ',' ||
+                line === ',,,,') {
                 continue;
             }
             
-            const [number, name] = line.split('\t').map(field => field.trim());
+            // Try to parse as player data
+            const fields = line.split(',').map(field => field.trim());
+            const number = fields[0];
+            const name = fields[1];
             
-            // Skip header rows or invalid data
-            if (!number || !name || name.toLowerCase() === 'player name') {
-                console.log(`Skipping invalid row:`, line);
+            // Must have both number and name
+            if (!number || !name) continue;
+            
+            // Number must be a valid integer
+            const playerNumber = parseInt(number);
+            if (isNaN(playerNumber)) continue;
+            
+            // Skip goalies (players with (G) in their name)
+            if (name.includes('(G)')) continue;
+            
+            // Skip if name looks like a header or is invalid
+            if (name.toLowerCase().includes('player') || 
+                name.toLowerCase().includes('name') ||
+                name.toLowerCase().includes('week') ||
+                name.toLowerCase().includes('goals allowed') ||
+                name.toLowerCase().includes('save') ||
+                name.toLowerCase().includes('shot attempts') ||
+                name.match(/^\d+$/) || // Skip if name is just numbers
+                name.length < 2) { // Skip very short names
                 continue;
             }
             
-            // Check if player is a goalie
-            const isGoalie = name.includes('(G)');
-            const cleanName = name.replace('(G)', '').trim();
-            
+            console.log(`Adding player: ${playerNumber} - ${name}`);
             players.push({
-                number: number ? parseInt(number) : 0,
-                name: cleanName,
-                isGoalie: isGoalie,
-                goals: 0,
-                saves: isGoalie ? 0 : null
+                number: playerNumber,
+                name: name,
+                goals: 0
             });
         }
         
