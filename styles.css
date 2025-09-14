@@ -482,25 +482,88 @@ body {
   .player-stats-table {
     width: 100%;
     table-layout: fixed;
+    font-size: 0.9rem;
   }
   .player-stats-table th,
   .player-stats-table td {
-    padding: 0.5rem 0.15rem;
-    font-size: 1em;
+    padding: 0.4rem 0.1rem;
+    font-size: 0.9rem;
     text-align: center;
   }
   .player-stats-table th:nth-child(1),
   .player-stats-table td:nth-child(1) {
-    width: 18%;
+    width: 12%; /* Jersey number */
   }
   .player-stats-table th:nth-child(2),
   .player-stats-table td:nth-child(2) {
-    width: 54%;
-    min-width: 5em;
+    width: 40%; /* Player name */
+    min-width: 4em;
+    text-align: left;
+    padding-left: 0.3rem;
   }
   .player-stats-table th:nth-child(3),
   .player-stats-table td:nth-child(3) {
-    width: 28%;
+    width: 16%; /* Goals */
+  }
+  .player-stats-table th:nth-child(4),
+  .player-stats-table td:nth-child(4) {
+    width: 16%; /* Assists */
+  }
+  .player-stats-table th:nth-child(5),
+  .player-stats-table td:nth-child(5) {
+    width: 16%; /* Penalties */
+  }
+  
+  /* Additional mobile optimizations for very small screens */
+  @media (max-width: 480px) {
+    .player-stats-table {
+      font-size: 0.8rem;
+    }
+    .player-stats-table th,
+    .player-stats-table td {
+      padding: 0.3rem 0.05rem;
+      font-size: 0.8rem;
+    }
+    /* Use shorter header text on very small screens */
+    .player-stats-table th:nth-child(3)::after {
+      content: "G";
+    }
+    .player-stats-table th:nth-child(3) {
+      font-size: 0;
+    }
+    .player-stats-table th:nth-child(4)::after {
+      content: "A";
+    }
+    .player-stats-table th:nth-child(4) {
+      font-size: 0;
+    }
+    .player-stats-table th:nth-child(5)::after {
+      content: "P";
+    }
+    .player-stats-table th:nth-child(5) {
+      font-size: 0;
+    }
+    .player-stats-table th:nth-child(1),
+    .player-stats-table td:nth-child(1) {
+      width: 10%; /* Jersey number */
+    }
+    .player-stats-table th:nth-child(2),
+    .player-stats-table td:nth-child(2) {
+      width: 45%; /* Player name */
+      min-width: 3.5em;
+    }
+    .player-stats-table th:nth-child(3),
+    .player-stats-table td:nth-child(3) {
+      width: 15%; /* Goals */
+    }
+    .player-stats-table th:nth-child(4),
+    .player-stats-table td:nth-child(4) {
+      width: 15%; /* Assists */
+    }
+    .player-stats-table th:nth-child(5),
+    .player-stats-table td:nth-child(5) {
+      width: 15%; /* Penalties */
+    }
   }
   .goalie-stats-table {
     width: 100%;
