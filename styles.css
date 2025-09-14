@@ -602,3 +602,13 @@ body {
   padding: 0.5rem 0.2rem;
   font-size: 1em;
 }
+
+/* Standings update message */
+.standings-update-message {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
