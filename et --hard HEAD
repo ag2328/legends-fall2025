@@ -35,3 +35,5 @@
 
                           SSEEAARRCCHHIINNGG
 
+  /_p_a_t_t_e_r_n          *  Search forward for (_N-th) matching line.
+  ?_p_a_t_t_e_r_n          *  Search backward for (_N-th) matching line.

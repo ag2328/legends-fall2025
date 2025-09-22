@@ -107,7 +107,7 @@ body {
 
 .standings-header, .standings-row {
   display: grid;
-  grid-template-columns: 2.5em 12em 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2.5em 12em 0.8fr 0.8fr 0.8fr 0.8fr 1fr 1.2fr;
   align-items: center;
   padding: 0.5em 1em;
   background: none;
@@ -192,7 +192,7 @@ body {
   .standings-header, .standings-row {
     font-size: 1.1em;
     padding: 0.3em 0.5em;
-    grid-template-columns: 1.2em 8em 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1.2em 8em 0.8fr 0.8fr 0.8fr 0.8fr 1fr 1.2fr;
   }
   .team-logo {
     width: 1.2em;
