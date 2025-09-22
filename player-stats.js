@@ -296,10 +296,6 @@ function createPlayerStatsGrid(teamName, playerData, stats) {
     `;
     
     legendContainer.innerHTML = `
-        <h2 style="color: var(--text-primary); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; text-align: center;">
-            Legend
-        </h2>
-        
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.3rem 0; border-bottom: 1px solid var(--border);">
             <span style="color: var(--text-primary); font-weight: 600; font-size: 1rem; min-width: 40px;">G</span>
             <span style="color: var(--text-primary); font-size: 1rem;">Goals</span>

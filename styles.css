@@ -128,6 +128,11 @@ body {
   text-align: center;
 }
 
+.standings-header > .header-pts,
+.standings-row > .team-pts {
+  text-align: right;
+}
+
 .standings-header > .header-team,
 .standings-row > .team-name {
   text-align: left;
